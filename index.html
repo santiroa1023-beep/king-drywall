@@ -1,0 +1,315 @@
+```html
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="theme-color" content="#1539D4">
+
+    <title>King Drywall | Iniciar sesión</title>
+
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* ========================================
+           MARCA Y LOGOTIPO
+        ======================================== */
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            display: block;
+            width: 46px;
+            height: 46px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .brand-name {
+            color: #1C293B;
+            font-size: 21px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-name strong {
+            color: #1539D4;
+            font-weight: 800;
+        }
+
+        /* Logo del panel azul */
+        .auth > aside > .brand {
+            margin-bottom: 48px;
+        }
+
+        /* Logo del formulario blanco */
+        .authbox > .brand.mobile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+        }
+
+        .authbox > .brand.mobile .brand-logo {
+            width: 42px;
+            height: 42px;
+        }
+
+        /* Oculta el logo del panel azul en pantallas pequeñas.
+           El logo del formulario blanco permanece visible. */
+        @media (max-width: 768px) {
+            .auth > aside > .brand {
+                display: none;
+            }
+
+            .authbox > .brand.mobile {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="auth" class="auth">
+
+        <!-- ========================================
+             PANEL IZQUIERDO AZUL
+        ======================================== -->
+
+        <aside>
+            <div class="brand">
+                <img
+                    src="assets/logo.jpeg"
+                    alt="Logo de King Drywall"
+                    class="brand-logo"
+                >
+
+                <span class="brand-name">
+                    King <strong>Drywall</strong>
+                </span>
+            </div>
+
+            <div class="pitch">
+                <small>SOLUCIONES PARA TUS PROYECTOS</small>
+
+                <h1>Tu próximo proyecto comienza aquí.</h1>
+
+                <p>
+                    Consulta nuestros servicios de construcción
+                    y solicita una cotización de forma sencilla.
+                </p>
+            </div>
+
+            <small>
+                Tablaroca · Durock · Plafones · Pintura
+            </small>
+        </aside>
+
+
+        <!-- ========================================
+             PANEL DERECHO: AUTENTICACIÓN
+        ======================================== -->
+
+        <section class="authbox">
+
+            <!-- Logo del formulario -->
+            <div class="brand mobile">
+                <img
+                    src="assets/logo.jpeg"
+                    alt="Logo de King Drywall"
+                    class="brand-logo"
+                >
+
+                <span class="brand-name">
+                    King <strong>Drywall</strong>
+                </span>
+            </div>
+
+
+            <!-- ========================================
+                 INICIAR SESIÓN
+            ======================================== -->
+
+            <div id="login">
+                <small>BIENVENIDO DE NUEVO</small>
+
+                <h2>Iniciar sesión</h2>
+
+                <p>
+                    Ingresa con tu correo y contraseña
+                    para continuar.
+                </p>
+
+                <form id="loginForm">
+                    <label>
+                        Correo electrónico
+
+                        <input
+                            name="email"
+                            type="email"
+                            required
+                            autocomplete="email"
+                            placeholder="nombre@correo.com"
+                        >
+                    </label>
+
+                    <label>
+                        Contraseña
+
+                        <input
+                            name="pass"
+                            type="password"
+                            required
+                            minlength="8"
+                            autocomplete="current-password"
+                            placeholder="Tu contraseña"
+                        >
+                    </label>
+
+                    <button type="submit">
+                        Ingresar →
+                    </button>
+
+                    <div
+                        class="msg"
+                        id="loginMsg"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+                </form>
+
+                <p class="switch">
+                    ¿No tienes cuenta?
+                    <a href="#" id="toRegister">
+                        Regístrate aquí
+                    </a>
+                </p>
+            </div>
+
+
+            <!-- ========================================
+                 REGISTRO
+            ======================================== -->
+
+            <div id="register" hidden>
+                <small>CREA TU CUENTA</small>
+
+                <h2>Regístrate</h2>
+
+                <p>
+                    Crea una cuenta para gestionar
+                    tus solicitudes.
+                </p>
+
+                <form id="registerForm">
+                    <label>
+                        Nombre completo
+
+                        <input
+                            name="name"
+                            required
+                            minlength="2"
+                            maxlength="100"
+                            autocomplete="name"
+                            placeholder="Tu nombre"
+                        >
+                    </label>
+
+                    <label>
+                        Correo electrónico
+
+                        <input
+                            name="email"
+                            type="email"
+                            required
+                            maxlength="150"
+                            autocomplete="email"
+                            placeholder="nombre@correo.com"
+                        >
+                    </label>
+
+                    <label>
+                        Teléfono (opcional)
+
+                        <input
+                            name="phone"
+                            type="tel"
+                            maxlength="25"
+                            autocomplete="tel"
+                            placeholder="Tu teléfono"
+                        >
+                    </label>
+
+                    <label>
+                        Contraseña
+
+                        <input
+                            name="pass"
+                            type="password"
+                            required
+                            minlength="8"
+                            autocomplete="new-password"
+                            placeholder="Mínimo 8 caracteres"
+                        >
+                    </label>
+
+                    <label>
+                        Confirmar contraseña
+
+                        <input
+                            name="confirm"
+                            type="password"
+                            required
+                            minlength="8"
+                            autocomplete="new-password"
+                            placeholder="Repite la contraseña"
+                        >
+                    </label>
+
+                    <button type="submit">
+                        Crear cuenta →
+                    </button>
+
+                    <div
+                        class="msg"
+                        id="registerMsg"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+                </form>
+
+                <p class="switch">
+                    ¿Ya tienes cuenta?
+                    <a href="#" id="toLogin">
+                        Inicia sesión
+                    </a>
+                </p>
+            </div>
+
+
+            <!-- ========================================
+                 AVISO DEL PROTOTIPO
+            ======================================== -->
+
+            <p class="notice">
+                Prototipo: las cuentas se guardan solo en
+                este navegador. No uses contraseñas reales
+                hasta conectar la autenticación segura
+                del servidor.
+            </p>
+
+        </section>
+    </div>
+
+    <!-- Lógica de inicio de sesión y registro -->
+    <script src="app.js"></script>
+</body>
+</html>
+```

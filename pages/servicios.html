@@ -1,0 +1,439 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1539D4">
+
+    <title>King Drywall | Servicios</title>
+
+    <meta
+        name="description"
+        content="Conoce los servicios de tablaroca, Durock, plafones y acabados de King Drywall."
+    >
+
+    <link rel="manifest" href="../manifest.webmanifest">
+    <link rel="stylesheet" href="../styles.css">
+
+    <style>
+        /* PALETA UNIFICADA */
+        .services-page {
+            background: #F5F7FC;
+        }
+
+        .services-page .section {
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 70px 6%;
+        }
+
+        .services-intro {
+            max-width: 760px;
+            margin-bottom: 36px;
+        }
+
+        .services-intro > small {
+            color: #1539D4;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .services-intro h1 {
+            margin: 12px 0;
+            color: #172D3D;
+            font-size: clamp(32px, 4vw, 46px);
+            line-height: 1.12;
+        }
+
+        .services-intro p {
+            color: #667D8E;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* TARJETAS DE SERVICIOS */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .services-grid .card {
+            display: flex;
+            min-width: 0;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 0;
+            border: 1px solid #DFE6F2;
+            border-radius: 17px;
+            background: #FFFFFF;
+            box-shadow: 0 7px 22px rgba(21, 57, 212, 0.05);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .services-grid .card:hover {
+            transform: translateY(-5px);
+            border-color: #C7D2FA;
+            box-shadow: 0 14px 30px rgba(21, 57, 212, 0.10);
+        }
+
+        .services-grid .art {
+            display: block;
+            width: 100%;
+            height: 220px;
+            padding: 0;
+            overflow: hidden;
+            background: #EAF0FF;
+            color: #1539D4;
+        }
+
+        .service-image {
+            display: block;
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #EAF0FF;
+        }
+
+        .services-grid .cardbody {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 23px;
+        }
+
+        .services-grid .cardbody h3 {
+            margin: 0;
+            color: #172D3D;
+            font-size: 22px;
+            line-height: 1.3;
+        }
+
+        .services-grid .cardbody p {
+            margin: 0;
+            color: #667D8E;
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .services-grid .service-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: auto;
+            padding: 10px 0 0;
+            border: 0;
+            background: transparent;
+            color: #1539D4;
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        .services-grid .service-link:hover {
+            background: transparent;
+            color: #102EAE;
+            text-decoration: underline;
+            box-shadow: none;
+            transform: none;
+        }
+
+        /* INFORMACIÓN INFERIOR */
+        .services-note {
+            margin-top: 36px;
+            padding: 26px;
+            border: 1px solid #DFE6F2;
+            border-left: 5px solid #F2C230;
+            border-radius: 15px;
+            background: #EAF0FF;
+            color: #526B84;
+        }
+
+        .services-note strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #1539D4;
+            font-size: 19px;
+        }
+
+        .services-note p {
+            margin: 0 0 12px;
+            line-height: 1.8;
+        }
+
+        .services-note .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #1539D4;
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        .services-note .service-link:hover {
+            color: #102EAE;
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 950px) {
+            .services-page .section {
+                padding: 55px 24px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .services-page .section {
+                padding: 40px 18px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .service-image,
+            .services-grid .art {
+                height: 230px;
+            }
+
+            .services-grid .cardbody {
+                padding: 20px;
+            }
+
+            .services-note {
+                padding: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- ENCABEZADO Y NAVEGACIÓN -->
+        <header>
+            <a class="brand" href="inicio.html">
+                <i>KD</i>
+                King <b>Drywall</b>
+            </a>
+
+            <button
+                class="hamb"
+                id="hamb"
+                type="button"
+                aria-label="Abrir menú"
+                aria-controls="nav"
+                aria-expanded="false"
+            >☰</button>
+
+            <nav id="nav">
+                <a href="inicio.html" data-page="inicio.html">Inicio</a>
+                <a href="nosotros.html" data-page="nosotros.html">Nosotros</a>
+                <a href="servicios.html" data-page="servicios.html">Servicios</a>
+                <a href="cotizar.html" data-page="cotizar.html">Cotizar</a>
+                <a href="solicitudes.html" data-page="solicitudes.html">Mis solicitudes</a>
+
+                <span class="nav-user" id="userName"></span>
+
+                <button id="logout" class="logout" type="button">
+                    Cerrar sesión
+                </button>
+            </nav>
+        </header>
+
+        <!-- CONTENIDO -->
+        <main class="services-page">
+            <section class="section">
+
+                <div class="services-intro">
+                    <small>LO QUE HACEMOS</small>
+
+                    <h1>Servicios para cada proyecto</h1>
+
+                    <p>
+                        Soluciones para proyectos residenciales,
+                        comerciales e industriales. Selecciona el servicio
+                        que necesitas y solicita una cotización.
+                    </p>
+                </div>
+
+                <!-- app-page.js genera las tarjetas -->
+                <div id="serviceGrid" class="grid services-grid"></div>
+
+                <div class="services-note">
+                    <strong>¿Tienes un proyecto en mente?</strong>
+
+                    <p>
+                        Cuéntanos qué necesitas. Envíanos los detalles
+                        de tu obra mediante nuestro formulario de cotización.
+                    </p>
+
+                    <a class="service-link" href="cotizar.html">
+                        Solicitar cotización →
+                    </a>
+                </div>
+
+            </section>
+        </main>
+
+        <!-- PIE DE PÁGINA -->
+        <footer>
+            <div class="social-footer-content">
+                <p class="social-footer-copy">
+                    King Drywall · Soluciones profesionales para tus espacios.
+                </p>
+
+                <div class="social-footer-right">
+                    <p class="social-footer-title">
+                        Síguenos y contacta con nosotros
+                    </p>
+
+                    <div class="social-links">
+                        <a
+                            class="social-button social-facebook"
+                            href="https://www.facebook.com/profile.php?id=61584960767380"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook de King Drywall"
+                        >
+                            <span class="social-icon" aria-hidden="true">f</span>
+                            Facebook
+                        </a>
+
+                        <a
+                            class="social-button social-instagram"
+                            href="https://www.instagram.com/king_drywall_/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram de King Drywall"
+                        >
+                            <span class="social-icon" aria-hidden="true"></span>
+                            Instagram
+                        </a>
+
+                        <a
+                            class="social-button social-whatsapp"
+                            href="https://wa.me/525518166701"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Contactar por WhatsApp"
+                        >
+                            <span class="social-icon" aria-hidden="true">↗</span>
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="../app-page.js"></script>
+
+    <script>
+        /*
+         * Agrega fotografías locales a las tarjetas generadas por app-page.js.
+         * Si una imagen no carga, se oculta sin afectar la tarjeta.
+         */
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const images = {
+                "Tablaroca": {
+                    /* AQUÍ VA LA FOTO DE TABLAROCA: hojastablaroca.jpeg */
+                    src: "../assets/hojastablaroca.jpeg",
+                    alt: "Trabajo de tablaroca en una obra"
+                },
+
+                "Durock": {
+                    /* AQUÍ VA LA FOTO DE DUROCK: tablarocaporfuera.jpeg */
+                    src: "../assets/tablarocaporfuera.jpeg",
+                    alt: "Trabajo de construcción en una obra"
+                },
+
+                "Plafones": {
+                    /* AQUÍ VA LA FOTO DE PLAFONES: plafon.jpeg */
+                    src: "../assets/plafones2.jpeg",
+                    alt: "Interior con plafones y acabados"
+                },
+
+                "Pintura y acabados": {
+                    /* AQUÍ VA LA FOTO DE PINTURA: pintura.jpeg */
+                    src: "../assets/pintura.jpeg",
+                    alt: "Trabajos de pintura y acabados"
+                },
+
+                "Acabados interiores": {
+                    /* AQUÍ VA LA FOTO DE ACABADOS: acabados.jpeg */
+                    src: "../assets/acabados.jpeg",
+                    alt: "Acabados de espacios interiores"
+                },
+
+                "Proyectos industriales": {
+                    /* AQUÍ VA LA FOTO DE PROYECTOS INDUSTRIALES: Ducati.jpeg */
+                    src: "../assets/Ducati.jpeg",
+                    alt: "Edificio comercial en construcción con trabajos de acabados"
+                }
+            };
+
+            function addServiceImages() {
+                document.querySelectorAll("#serviceGrid .card").forEach((card) => {
+                    const title = card.querySelector("h3");
+                    const art = card.querySelector(".art");
+
+                    if (!title || !art) return;
+                    if (card.querySelector(".service-image")) return;
+
+                    const imageInfo = images[title.textContent.trim()];
+
+                    if (!imageInfo) return;
+
+                    const image = document.createElement("img");
+
+                    image.className = "service-image";
+                    image.src = imageInfo.src;
+                    image.alt = imageInfo.alt;
+                    image.loading = "lazy";
+
+                    image.addEventListener("error", () => {
+                        image.remove();
+                    });
+
+                    art.replaceWith(image);
+                });
+            }
+
+            addServiceImages();
+
+            /*
+             * También permite procesar las tarjetas si app-page.js
+             * las termina de insertar después de cargar el documento.
+             */
+            const grid = document.getElementById("serviceGrid");
+
+            if (grid) {
+                const observer = new MutationObserver(() => {
+                    addServiceImages();
+                });
+
+                observer.observe(grid, {
+                    childList: true,
+                    subtree: true
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1539D4">
+
+    <title>King Drywall | Nosotros</title>
+
+    <meta
+        name="description"
+        content="Conoce King Drywall, nuestros servicios de tablaroca, Durock, plafones, pintura y acabados en San Luis Potosí."
+    >
+
+    <link rel="manifest" href="../manifest.webmanifest">
+    <link rel="stylesheet" href="../styles.css">
+
+    <style>
+        :root {
+            --kd-blue: #1539D4;
+            --kd-blue-dark: #102EAE;
+            --kd-blue-light: #EAF0FF;
+            --kd-yellow: #F2C230;
+            --kd-yellow-light: #FFF6D9;
+            --kd-background: #F5F7FC;
+            --kd-text: #1C293B;
+            --kd-text-muted: #65748B;
+            --kd-border: #DFE6F2;
+        }
+
+        /* HERO */
+
+        .about-hero {
+            padding: 75px 24px;
+            background: linear-gradient(
+                135deg,
+                #EAF0FF,
+                #F5F7FC
+            );
+        }
+
+        .about-hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 0.9fr;
+            align-items: center;
+            gap: 55px;
+            width: min(1200px, 100%);
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 14px;
+            color: var(--kd-blue);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .about-hero h1 {
+            margin: 0 0 22px;
+            color: var(--kd-text);
+            font-size: clamp(35px, 5vw, 56px);
+            line-height: 1.08;
+        }
+
+        .about-hero h1 span {
+            color: var(--kd-blue);
+        }
+
+        .about-hero p {
+            max-width: 620px;
+            color: var(--kd-text-muted);
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .about-hero-image {
+            position: relative;
+            min-height: 380px;
+            overflow: hidden;
+            border-radius: 22px;
+            background: var(--kd-blue-light);
+            box-shadow: 0 20px 45px rgba(21, 57, 212, 0.12);
+        }
+
+        .about-hero-image img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 380px;
+            object-fit: cover;
+        }
+
+        .about-hero-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(16, 46, 174, 0.78),
+                transparent 70%
+            );
+        }
+
+        .about-image-caption {
+            position: absolute;
+            z-index: 1;
+            right: 25px;
+            bottom: 25px;
+            left: 25px;
+            color: #FFFFFF;
+        }
+
+        .about-image-caption strong {
+            display: block;
+            font-size: 27px;
+            line-height: 1.2;
+        }
+
+        .about-image-caption span {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--kd-yellow);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        /* QUIÉNES SOMOS */
+
+        .about-story {
+            padding: 85px 24px;
+            background: #FFFFFF;
+        }
+
+        .about-story-inner {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            align-items: start;
+            gap: 60px;
+            width: min(1150px, 100%);
+            margin: 0 auto;
+        }
+
+        .about-story h2,
+        .work-heading h2,
+        .process-heading h2 {
+            margin: 0 0 18px;
+            color: var(--kd-text);
+            font-size: clamp(30px, 4vw, 42px);
+            line-height: 1.15;
+        }
+
+        .about-story p {
+            margin-top: 0;
+            color: var(--kd-text-muted);
+            line-height: 1.9;
+        }
+
+        .about-story-note {
+            padding: 28px;
+            border-left: 4px solid var(--kd-yellow);
+            border-radius: 0 15px 15px 0;
+            background: var(--kd-blue-light);
+        }
+
+        .about-story-note strong {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--kd-blue);
+            font-size: 19px;
+        }
+
+        .about-story-note p {
+            margin: 0;
+        }
+
+        /* NUESTROS TRABAJOS */
+
+        .work-section {
+            padding: 85px 24px;
+            background: var(--kd-background);
+        }
+
+        .work-inner {
+            width: min(1200px, 100%);
+            margin: 0 auto;
+        }
+
+        .work-heading {
+            max-width: 720px;
+            margin-bottom: 35px;
+        }
+
+        .work-heading p,
+        .process-heading p {
+            color: var(--kd-text-muted);
+            line-height: 1.8;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 23px;
+        }
+
+        .work-card {
+            overflow: hidden;
+            border: 1px solid var(--kd-border);
+            border-radius: 18px;
+            background: #FFFFFF;
+            box-shadow: 0 8px 24px rgba(21, 57, 212, 0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .work-card img {
+            display: block;
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            background: var(--kd-blue-light);
+        }
+
+        .work-card-content {
+            padding: 24px;
+        }
+
+        .work-card-content span {
+            color: var(--kd-blue);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .work-card h3 {
+            margin: 10px 0;
+            color: var(--kd-text);
+            font-size: 21px;
+        }
+
+        .work-card p {
+            margin: 0;
+            color: var(--kd-text-muted);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .photo-note {
+            margin-top: 24px;
+            color: var(--kd-text-muted);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        /* PROCESO DE TRABAJO */
+
+        .process-section {
+            padding: 85px 24px;
+            background: #FFFFFF;
+        }
+
+        .process-inner {
+            width: min(1200px, 100%);
+            margin: 0 auto;
+        }
+
+        .process-heading {
+            max-width: 720px;
+            margin-bottom: 35px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .process-card {
+            padding: 27px;
+            border: 1px solid var(--kd-border);
+            border-radius: 17px;
+            background: #FFFFFF;
+            transition:
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .process-card:hover {
+            border-color: var(--kd-blue);
+            transform: translateY(-3px);
+        }
+
+        .process-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            margin-bottom: 20px;
+            border-radius: 13px;
+            background: var(--kd-blue-light);
+            color: var(--kd-blue);
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .process-card h3 {
+            margin: 0 0 10px;
+            color: var(--kd-text);
+        }
+
+        .process-card p {
+            margin: 0;
+            color: var(--kd-text-muted);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* LLAMADA A LA ACCIÓN */
+
+        .about-contact {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 55px max(24px, calc((100% - 1200px) / 2));
+            background: var(--kd-blue);
+            color: #FFFFFF;
+        }
+
+        .about-contact h2 {
+            margin: 0 0 12px;
+            color: #FFFFFF;
+            font-size: clamp(25px, 3vw, 35px);
+        }
+
+        .about-contact p {
+            max-width: 680px;
+            margin: 0;
+            color: #FFFFFF;
+            line-height: 1.8;
+        }
+
+        .about-contact .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            padding: 14px 22px;
+            border: 1px solid var(--kd-yellow);
+            border-radius: 10px;
+            background: var(--kd-yellow);
+            color: var(--kd-blue-dark);
+            font-weight: 800;
+            text-decoration: none;
+            white-space: nowrap;
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .about-contact .btn:hover {
+            background: var(--kd-yellow-light);
+            transform: translateY(-2px);
+        }
+
+        /* RESPONSIVE: TABLET */
+
+        @media (max-width: 850px) {
+            .about-hero-inner,
+            .about-story-inner {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .about-hero-image,
+            .about-hero-image img {
+                min-height: 320px;
+            }
+
+            .work-grid,
+            .process-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* RESPONSIVE: CELULAR */
+
+        @media (max-width: 580px) {
+            .about-hero,
+            .about-story,
+            .work-section,
+            .process-section {
+                padding: 55px 18px;
+            }
+
+            .work-grid,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .work-card img {
+                height: 220px;
+            }
+
+            .about-contact {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 42px 22px;
+            }
+
+            .about-contact .btn {
+                width: 100%;
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- ENCABEZADO Y NAVEGACIÓN -->
+
+        <header>
+            <a class="brand" href="inicio.html">
+                <i>KD</i>
+                King <b>Drywall</b>
+            </a>
+
+            <button
+                class="hamb"
+                id="hamb"
+                type="button"
+                aria-label="Abrir menú"
+                aria-controls="nav"
+                aria-expanded="false"
+            >☰</button>
+
+            <nav id="nav">
+                <a href="inicio.html" data-page="inicio.html">Inicio</a>
+                <a href="nosotros.html" data-page="nosotros.html">Nosotros</a>
+                <a href="servicios.html" data-page="servicios.html">Servicios</a>
+                <a href="cotizar.html" data-page="cotizar.html">Cotizar</a>
+                <a href="solicitudes.html" data-page="solicitudes.html">Mis solicitudes</a>
+
+                <span class="nav-user" id="userName"></span>
+
+                <button id="logout" class="logout" type="button">
+                    Cerrar sesión
+                </button>
+            </nav>
+        </header>
+
+        <main>
+
+            <!-- HERO PRINCIPAL -->
+
+            <section class="about-hero">
+                <div class="about-hero-inner">
+
+                    <div>
+                        <span class="eyebrow">CONOCE KING DRYWALL</span>
+
+                        <h1>
+                            Construimos ideas.<br>
+                            <span>Transformamos espacios.</span>
+                        </h1>
+
+                        <p>
+                            Somos King Drywall, una empresa enfocada en
+                            soluciones de construcción ligera y acabados
+                            para espacios residenciales, comerciales e
+                            industriales en San Luis Potosí.
+                        </p>
+
+                        <p>
+                            Conoce nuestros servicios y descubre cómo
+                            podemos ayudarte a definir las necesidades
+                            de tu próximo proyecto.
+                        </p>
+
+                        <a class="btn" href="servicios.html">
+                            Conocer servicios →
+                        </a>
+
+                        <a class="btn secondary" href="cotizar.html">
+                            Solicitar cotización ↗
+                        </a>
+                    </div>
+
+                    <div class="about-hero-image">
+
+                        <!-- AQUÍ VA LA FOTO PRINCIPAL: otranaveindustrial.jpeg -->
+                        <img
+                            src="../assets/otranaveindustrial.jpeg"
+                            alt="Proyecto de nave industrial"
+                            loading="eager"
+                        >
+
+                        <div class="about-image-caption">
+                            <span>NUESTRO ENFOQUE</span>
+                            <strong>Soluciones para cada espacio.</strong>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- QUIÉNES SOMOS -->
+            <!-- ESTA SECCIÓN SE CONSERVA SIN CAMBIOS -->
+
+            <section class="about-story">
+                <div class="about-story-inner">
+
+                    <div>
+                        <span class="eyebrow">QUIÉNES SOMOS</span>
+
+                        <h2>Trabajamos para hacer realidad tus ideas.</h2>
+                    </div>
+
+                    <div>
+                        <p>
+                            En King Drywall entendemos que cada proyecto
+                            tiene objetivos, medidas y necesidades
+                            diferentes. Por eso, buscamos conocer lo que
+                            cada cliente necesita antes de definir el
+                            trabajo que se realizará.
+                        </p>
+
+                        <p>
+                            Nos enfocamos en servicios de tablaroca,
+                            Durock, plafones, pintura y acabados interiores,
+                            con atención a las características de cada
+                            espacio y a los detalles del proyecto.
+                        </p>
+
+                        <div class="about-story-note">
+                            <strong>Nuestra manera de trabajar</strong>
+
+                            <p>
+                                Escuchar, planear y cuidar los detalles
+                                son puntos importantes para orientar cada
+                                proyecto hacia una solución funcional.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- NUESTROS TRABAJOS -->
+
+            <section class="work-section">
+                <div class="work-inner">
+
+                    <div class="work-heading">
+                        <span class="eyebrow">NUESTROS TRABAJOS</span>
+
+                        <h2>Soluciones para diferentes espacios</h2>
+
+                        <p>
+                            Estos son algunos de los tipos de trabajo
+                            que forman parte de nuestros servicios.
+                            Cada proyecto se debe valorar de acuerdo con
+                            sus características y necesidades.
+                        </p>
+                    </div>
+
+                    <div class="work-grid">
+
+                        <article class="work-card">
+
+                            <!-- AQUÍ VA LA FOTO DE TABLAROCA: hojastablaroca.jpeg -->
+                            <img
+                                src="../assets/hojastablaroca.jpeg"
+                                alt="Personal trabajando en una obra"
+                                loading="lazy"
+                            >
+
+                            <div class="work-card-content">
+                                <span>01 · MUROS Y DIVISIONES</span>
+                                <h3>Tablaroca</h3>
+
+                                <p>
+                                    Soluciones para muros divisorios,
+                                    revestimientos y distribución de
+                                    espacios interiores mediante paneles
+                                    de yeso.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="work-card">
+
+                            <!-- AQUÍ VA LA FOTO DE DUROCK: tablarocaporfuera.jpeg -->
+                            <img
+                                src="../assets/tablarocaporfuera.jpeg"
+                                alt="Trabajo de construcción en una obra"
+                                loading="lazy"
+                            >
+
+                            <div class="work-card-content">
+                                <span>02 · PANELES DE CEMENTO</span>
+                                <h3>Durock</h3>
+
+                                <p>
+                                    Alternativas con panel de cemento
+                                    para aplicaciones donde se requiere
+                                    este tipo de material.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="work-card">
+
+                            <!-- AQUÍ VA LA FOTO DE PLAFONES: plafon.jpeg -->
+                            <img
+                                src="../assets/plafon.jpeg"
+                                alt="Interior con techo y acabados modernos"
+                                loading="lazy"
+                            >
+
+                            <div class="work-card-content">
+                                <span>03 · TECHOS INTERIORES</span>
+                                <h3>Plafones</h3>
+
+                                <p>
+                                    Soluciones de plafones y techos
+                                    interiores para complementar la
+                                    distribución y el diseño del espacio.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="work-card">
+
+                            <!-- AQUÍ VA LA FOTO DE PINTURA: pintura.jpeg -->
+                            <img
+                                src="../assets/pintura.jpeg"
+                                alt="Herramientas utilizadas para pintar"
+                                loading="lazy"
+                            >
+
+                            <div class="work-card-content">
+                                <span>04 · PINTURA</span>
+                                <h3>Pintura y acabados</h3>
+
+                                <p>
+                                    Preparación de superficies y
+                                    aplicación de pintura como parte
+                                    del acabado de los espacios.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="work-card">
+
+                            <!-- AQUÍ VA LA FOTO DE ACABADOS INTERIORES: obra5.jpeg -->
+                            <img
+                                src="../assets/obra5.jpeg"
+                                alt="Sala interior con acabados contemporáneos"
+                                loading="lazy"
+                            >
+
+                            <div class="work-card-content">
+                                <span>05 · ESPACIOS INTERIORES</span>
+                                <h3>Acabados interiores</h3>
+
+                                <p>
+                                    Trabajos complementarios para
+                                    lograr espacios funcionales y
+                                    visualmente integrados.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="work-card">
+
+                            <!-- AQUÍ VA LA FOTO DE ESPACIOS COMERCIALES: obra6.jpeg -->
+                            <img
+                                src="../assets/obra6.jpeg"
+                                alt="Edificio de uso comercial"
+                                loading="lazy"
+                            >
+
+                            <div class="work-card-content">
+                                <span>06 · PROYECTOS COMERCIALES</span>
+                                <h3>Espacios comerciales</h3>
+
+                                <p>
+                                    Servicios que pueden adaptarse a
+                                    oficinas, locales y otros espacios,
+                                    según el alcance de cada obra.
+                                </p>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <p class="photo-note">
+                        Nota: las fotografías de esta página son
+                        ilustrativas y no representan necesariamente
+                        obras realizadas por King Drywall. Se pueden
+                        sustituir por fotografías propias de la empresa.
+                    </p>
+
+                </div>
+            </section>
+
+            <!-- PASOS PARA COMENZAR -->
+
+            <section class="process-section">
+                <div class="process-inner">
+
+                    <div class="process-heading">
+                        <span class="eyebrow">CÓMO COMENZAR</span>
+
+                        <h2>Tu proyecto, paso a paso</h2>
+
+                        <p>
+                            Puedes iniciar tu solicitud desde esta página
+                            y compartir los detalles necesarios para
+                            valorar el trabajo que necesitas.
+                        </p>
+                    </div>
+
+                    <div class="process-grid">
+
+                        <article class="process-card">
+                            <div class="process-number">01</div>
+                            <h3>Cuéntanos tu idea</h3>
+
+                            <p>
+                                Selecciona el servicio y describe el
+                                proyecto que quieres realizar.
+                            </p>
+                        </article>
+
+                        <article class="process-card">
+                            <div class="process-number">02</div>
+                            <h3>Comparte los detalles</h3>
+
+                            <p>
+                                Indica la ubicación, la superficie
+                                aproximada y las características de la obra.
+                            </p>
+                        </article>
+
+                        <article class="process-card">
+                            <div class="process-number">03</div>
+                            <h3>Registra tu solicitud</h3>
+
+                            <p>
+                                Guarda la solicitud y consulta su registro
+                                desde la sección Mis solicitudes.
+                            </p>
+                        </article>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- CONTACTO Y COTIZACIÓN -->
+
+            <section class="about-contact">
+                <div>
+                    <h2>¿Tienes un proyecto en mente?</h2>
+
+                    <p>
+                        Conoce nuestros servicios y comparte los detalles
+                        de tu obra para iniciar una solicitud de cotización.
+                    </p>
+                </div>
+
+                <a class="btn" href="cotizar.html">
+                    Solicitar cotización →
+                </a>
+            </section>
+
+        </main>
+
+        <!-- PIE DE PÁGINA -->
+
+        <footer>
+            King Drywall · Soluciones profesionales para tus espacios.
+            <br>
+            San Luis Potosí, México.
+        </footer>
+
+    </div>
+
+    <script src="../app-page.js"></script>
+</body>
+</html>

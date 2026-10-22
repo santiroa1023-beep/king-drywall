@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1539D4">
+
+    <title>Sin conexión | King Drywall</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #F5F7FC;
+            color: #1C293B;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .offline-card {
+            width: 100%;
+            max-width: 460px;
+            padding: 40px 28px;
+            border: 1px solid #DFE6F2;
+            border-radius: 22px;
+            background: #FFFFFF;
+            box-shadow: 0 12px 35px rgba(21, 57, 212, 0.08);
+        }
+
+        .offline-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0 0 16px;
+            color: #1539D4;
+            font-size: 28px;
+        }
+
+        p {
+            color: #65748B;
+            line-height: 1.7;
+        }
+
+        .offline-button {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 14px 22px;
+            border-radius: 10px;
+            background: #1539D4;
+            color: #FFFFFF;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .offline-button:hover {
+            background: #102EAE;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="offline-card">
+        <img
+            src="./assets/logo.jpeg"
+            alt="Logo de King Drywall"
+            class="offline-logo"
+        >
+
+        <h1>No hay conexión</h1>
+
+        <p>
+            Parece que no tienes conexión a internet.
+            Puedes volver a intentarlo cuando tu conexión
+            esté disponible.
+        </p>
+
+        <a
+            class="offline-button"
+            href="./index.html"
+            onclick="location.reload(); return false;"
+        >
+            Intentar nuevamente
+        </a>
+    </main>
+</body>
+</html>

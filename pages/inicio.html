@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="King Drywall Multiservicios. Soluciones profesionales en tablaroca, plafones, pintura y construcción.">
+    <title>Inicio | King Drywall</title>
+
+    <link rel="stylesheet" href="../styles.css">
+
+    <style>
+        /* ===== ESTILOS GENERALES DE INICIO ===== */
+        .inicio-contenedor {
+            width: min(1150px, 92%);
+            margin: auto;
+        }
+
+        .inicio-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+            padding: 65px 0;
+        }
+
+        .inicio-etiqueta {
+            color: #1539D4;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 13px;
+        }
+
+        .inicio-hero h1 {
+            font-size: clamp(35px, 5vw, 58px);
+            line-height: 1.08;
+            margin: 15px 0;
+            color: #172033;
+        }
+
+        .inicio-hero p {
+            color: #606b7d;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .inicio-botones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .inicio-boton {
+            display: inline-block;
+            padding: 13px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .inicio-boton-principal {
+            background: #1539D4;
+            color: white;
+        }
+
+        .inicio-boton-principal:hover {
+            background: #102EAE;
+        }
+
+        .inicio-boton-secundario {
+            border: 1px solid #1539D4;
+            color: #1539D4;
+            background: white;
+        }
+
+        .inicio-hero-foto {
+            height: 420px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #EAF0FF;
+        }
+
+        .inicio-hero-foto img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .inicio-seccion {
+            padding: 55px 0;
+        }
+
+        .inicio-encabezado {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .inicio-encabezado h2 {
+            color: #172033;
+            font-size: clamp(27px, 4vw, 38px);
+            margin-bottom: 12px;
+        }
+
+        .inicio-encabezado p {
+            color: #687386;
+            line-height: 1.7;
+        }
+
+        .inicio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .inicio-tarjeta {
+            overflow: hidden;
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 14px;
+            box-shadow: 0 6px 20px rgba(20, 40, 90, 0.06);
+        }
+
+        .inicio-tarjeta-foto {
+            height: 220px;
+            background: #EAF0FF;
+        }
+
+        .inicio-tarjeta-foto img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .inicio-tarjeta-contenido {
+            padding: 20px;
+        }
+
+        .inicio-tarjeta h3 {
+            margin-top: 0;
+            color: #172033;
+        }
+
+        .inicio-tarjeta p {
+            color: #687386;
+            line-height: 1.7;
+        }
+
+        .inicio-servicios {
+            background: #EAF0FF;
+        }
+
+        .inicio-servicio {
+            padding: 24px;
+            background: white;
+            border-radius: 12px;
+            border-bottom: 4px solid #F2C230;
+        }
+
+        .inicio-servicio h3 {
+            color: #1539D4;
+            margin-top: 0;
+        }
+
+        .inicio-cta {
+            margin: 40px auto 60px;
+            padding: 40px;
+            border-radius: 18px;
+            background: #1539D4;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .inicio-cta h2 {
+            margin-top: 0;
+        }
+
+        .inicio-cta p {
+            line-height: 1.7;
+        }
+
+        .inicio-cta .inicio-boton {
+            background: #F2C230;
+            color: #172033;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 760px) {
+            .inicio-hero {
+                grid-template-columns: 1fr;
+                padding: 35px 0;
+                gap: 25px;
+            }
+
+            .inicio-hero-foto {
+                height: 280px;
+            }
+
+            .inicio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .inicio-tarjeta-foto {
+                height: 240px;
+            }
+
+            .inicio-cta {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVEGACIÓN PRINCIPAL ===== -->
+    <header>
+        <div class="inicio-contenedor" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;flex-wrap:wrap;">
+
+            <a href="inicio.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;color:#1539D4;">
+                <!-- AQUÍ VA EL LOGO DE KING DRYWALL -->
+                <img src="../assets/logo.jpeg" alt="Logo de King Drywall" style="width:45px;height:45px;object-fit:contain;">
+                <span>King Drywall</span>
+            </a>
+
+            <nav style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:14px;">
+                <a href="inicio.html">Inicio</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="cotizar.html">Cotizar</a>
+                <a href="solicitudes.html">Mis solicitudes</a>
+                <a href="../index.html">Salir</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ================================================== -->
+        <!-- SECCIÓN 1: PORTADA PRINCIPAL -->
+        <!-- AQUÍ VA LA FOTO PRINCIPAL DE INICIO: obra1.jpeg -->
+        <!-- Para cambiarla, modifica el atributo src de abajo. -->
+        <!-- ================================================== -->
+
+        <section class="inicio-contenedor inicio-hero">
+
+            <div>
+                <span class="inicio-etiqueta">King Drywall Multiservicios</span>
+
+                <h1>Construimos espacios que inspiran.</h1>
+
+                <p>
+                    Soluciones profesionales en tablaroca, plafones, pintura
+                    y acabados. Trabajamos para convertir tus ideas en espacios
+                    funcionales, modernos y de calidad.
+                </p>
+
+                <div class="inicio-botones">
+                    <a href="cotizar.html" class="inicio-boton inicio-boton-principal">
+                        Solicitar cotización
+                    </a>
+
+                    <a href="servicios.html" class="inicio-boton inicio-boton-secundario">
+                        Ver servicios
+                    </a>
+                </div>
+            </div>
+
+            <div class="inicio-hero-foto">
+                <!-- >>> AQUÍ VA LA FOTO PRINCIPAL: CAMBIA obra1.jpeg SI QUIERES <<< -->
+                <img src="../assets/Camioneta.jpeg"
+                     alt="Proyecto de construcción de King Drywall">
+            </div>
+
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- SECCIÓN 2: NUESTROS TRABAJOS -->
+        <!-- AQUÍ VAN LAS FOTOS DE TUS PROYECTOS -->
+        <!-- Puedes cambiar obra2.jpeg, obra3.jpeg y obra4.jpeg. -->
+        <!-- ================================================== -->
+
+        <section class="inicio-seccion">
+            <div class="inicio-contenedor">
+
+                <div class="inicio-encabezado">
+                    <span class="inicio-etiqueta">Nuestro trabajo</span>
+                    <h2>Proyectos que hablan por nosotros</h2>
+                    <p>
+                        Conoce algunos de los trabajos y soluciones que
+                        podemos ofrecer para tu hogar, negocio o proyecto.
+                    </p>
+                </div>
+
+                <div class="inicio-grid">
+
+                    <article class="inicio-tarjeta">
+                        <div class="inicio-tarjeta-foto">
+                            <!-- >>> AQUÍ VA LA FOTO DEL PROYECTO 1: obra2.jpeg <<< -->
+                            <img src="../assets/obra2.jpeg"
+                                 alt="Proyecto de construcción número uno"
+                                 loading="lazy">
+                        </div>
+
+                        <div class="inicio-tarjeta-contenido">
+                            <h3>Trabajos de construcción</h3>
+                            <p>
+                                Soluciones adaptadas a las características
+                                y necesidades de cada espacio.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="inicio-tarjeta">
+                        <div class="inicio-tarjeta-foto">
+                            <!-- >>> AQUÍ VA LA FOTO DEL PROYECTO 2: obra3.jpeg <<< -->
+                            <img src="../assets/obra3.jpeg"
+                                 alt="Proyecto de construcción número dos"
+                                 loading="lazy">
+                        </div>
+
+                        <div class="inicio-tarjeta-contenido">
+                            <h3>Instalación y acabados</h3>
+                            <p>
+                                Cuidamos los detalles para lograr resultados
+                                funcionales y una buena presentación.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="inicio-tarjeta">
+                        <div class="inicio-tarjeta-foto">
+                            <!-- >>> AQUÍ VA LA FOTO DEL PROYECTO 3: obra4.jpeg <<< -->
+                            <img src="../assets/obra4.jpeg"
+                                 alt="Proyecto de construcción número tres"
+                                 loading="lazy">
+                        </div>
+
+                        <div class="inicio-tarjeta-contenido">
+                            <h3>Soluciones para tus espacios</h3>
+                            <p>
+                                Propuestas para renovar, mejorar y aprovechar
+                                cada área de tu proyecto.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- SECCIÓN 3: SERVICIOS DESTACADOS -->
+        <!-- AQUÍ VAN LAS FOTOS DE PINTURA Y PLAFONES -->
+        <!-- ================================================== -->
+
+        <section class="inicio-seccion inicio-servicios">
+            <div class="inicio-contenedor">
+
+                <div class="inicio-encabezado">
+                    <span class="inicio-etiqueta">Lo que hacemos</span>
+                    <h2>Servicios para tu proyecto</h2>
+                    <p>
+                        Conoce algunas de las soluciones que ponemos
+                        a tu disposición.
+                    </p>
+                </div>
+
+                <div class="inicio-grid">
+
+                    <article class="inicio-tarjeta">
+                        <div class="inicio-tarjeta-foto">
+                            <!-- >>> AQUÍ VA LA FOTO DE PINTURA: pintura.jpeg <<< -->
+                            <img src="../assets/pintura.jpeg"
+                                 alt="Trabajo de pintura"
+                                 loading="lazy">
+                        </div>
+
+                        <div class="inicio-tarjeta-contenido">
+                            <h3>Pintura y acabados</h3>
+                            <p>
+                                Acabados para renovar y mejorar la apariencia
+                                de interiores y otros espacios.
+                            </p>
+                            <a href="servicios.html">Conocer servicio →</a>
+                        </div>
+                    </article>
+
+                    <article class="inicio-tarjeta">
+                        <div class="inicio-tarjeta-foto">
+                            <!-- >>> AQUÍ VA LA FOTO DE PLAFONES: plafon.jpeg <<< -->
+                            <img src="../assets/plafon.jpeg"
+                                 alt="Trabajo de instalación de plafón"
+                                 loading="lazy">
+                        </div>
+
+                        <div class="inicio-tarjeta-contenido">
+                            <h3>Plafones</h3>
+                            <p>
+                                Soluciones para techos y espacios interiores
+                                de acuerdo con las necesidades del proyecto.
+                            </p>
+                            <a href="servicios.html">Conocer servicio →</a>
+                        </div>
+                    </article>
+
+                    <article class="inicio-tarjeta">
+                        <div class="inicio-tarjeta-foto">
+                            <!-- >>> AQUÍ VA OTRA FOTO: puedes usar obra1.jpeg <<< -->
+                            <img src="../assets/obra1.jpeg"
+                                 alt="Trabajo de instalación y construcción"
+                                 loading="lazy">
+                        </div>
+
+                        <div class="inicio-tarjeta-contenido">
+                            <h3>Tablaroca y construcción</h3>
+                            <p>
+                                Alternativas para crear divisiones y adaptar
+                                espacios a diferentes necesidades.
+                            </p>
+                            <a href="servicios.html">Conocer servicio →</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- SECCIÓN 4: LLAMADA A LA ACCIÓN -->
+        <!-- AQUÍ PUEDES AGREGAR UNA FOTO DE FONDO MÁS ADELANTE -->
+        <!-- ================================================== -->
+
+        <section class="inicio-contenedor">
+            <div class="inicio-cta">
+                <div>
+                    <h2>¿Tienes un proyecto en mente?</h2>
+                    <p>
+                        Cuéntanos qué necesitas y solicita una cotización
+                        para comenzar a planear tu proyecto.
+                    </p>
+                </div>
+
+                <a href="cotizar.html" class="inicio-boton">
+                    Cotizar mi proyecto →
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ===== PIE DE PÁGINA ===== -->
+    <footer style="background:#102EAE;color:white;padding:25px 0;">
+        <div class="inicio-contenedor" style="display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;">
+            <p style="margin:0;">© King Drywall Multiservicios</p>
+            <a href="cotizar.html" style="color:#F2C230;">Solicita tu cotización</a>
+        </div>
+    </footer>
+
+    <!-- IMPORTANTE: se conserva el JavaScript general del proyecto -->
+    <script src="../app-page.js"></script>
+
+</body>
+</html>

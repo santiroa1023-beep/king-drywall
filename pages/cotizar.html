@@ -1,0 +1,237 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1539D4">
+    <title>King Drywall | Cotizar</title>
+
+    <link rel="manifest" href="../manifest.webmanifest">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <a class="brand" href="inicio.html">
+                <i>KD</i>
+                King <b>Drywall</b>
+            </a>
+
+            <button
+                class="hamb"
+                id="hamb"
+                type="button"
+                aria-label="Abrir menú"
+                aria-controls="nav"
+                aria-expanded="false"
+            >☰</button>
+
+            <nav id="nav">
+                <a href="inicio.html" data-page="inicio.html">Inicio</a>
+                <a href="nosotros.html" data-page="nosotros.html">Nosotros</a>
+                <a href="servicios.html" data-page="servicios.html">Servicios</a>
+                <a href="cotizar.html" data-page="cotizar.html">Cotizar</a>
+                <a href="solicitudes.html" data-page="solicitudes.html">Mis solicitudes</a>
+
+                <span class="nav-user" id="userName"></span>
+
+                <button id="logout" class="logout" type="button">
+                    Cerrar sesión
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <section class="section quote">
+                <div>
+                    <small>HABLEMOS DE TU PROYECTO</small>
+
+                    <h2>Solicita tu<br><span>cotización.</span></h2>
+
+                    <p>
+                        Cuéntanos qué necesitas y registra los detalles
+                        de tu obra.
+                    </p>
+
+                    <div class="quote-note">
+                        <b>✓</b>
+                        <div>
+                            <strong>Solicitud sin compromiso</strong><br>
+                            <small>
+                                El precio depende del alcance y las
+                                características de la obra.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <form id="quoteForm">
+                        <h3>Datos de tu proyecto</h3>
+
+                        <div class="two">
+                            <label>
+                                Nombre
+                                <input
+                                    name="name"
+                                    id="qName"
+                                    required
+                                    maxlength="100"
+                                    autocomplete="name"
+                                >
+                            </label>
+
+                            <label>
+                                Correo
+                                <input
+                                    name="email"
+                                    id="qEmail"
+                                    type="email"
+                                    required
+                                    maxlength="150"
+                                    autocomplete="email"
+                                >
+                            </label>
+                        </div>
+
+                        <div class="two">
+                            <label>
+                                Teléfono
+                                <input
+                                    name="phone"
+                                    id="qPhone"
+                                    type="tel"
+                                    required
+                                    maxlength="25"
+                                    autocomplete="tel"
+                                >
+                            </label>
+
+                            <label>
+                                Servicio
+                                <select
+                                    name="service"
+                                    id="serviceSelect"
+                                    required
+                                >
+                                    <option value="">
+                                        Selecciona un servicio
+                                    </option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <label>
+                            Ubicación de la obra
+                            <input
+                                name="location"
+                                id="qLocation"
+                                required
+                                maxlength="180"
+                                placeholder="Ciudad o dirección aproximada"
+                            >
+                        </label>
+
+                        <div class="two">
+                            <label>
+                                Superficie (m²)
+                                <input
+                                    name="meters"
+                                    id="qMeters"
+                                    type="number"
+                                    min="1"
+                                    max="100000"
+                                    step="0.01"
+                                >
+                            </label>
+
+                            <label>
+                                Fecha deseada
+                                <input
+                                    name="date"
+                                    id="qDate"
+                                    type="date"
+                                >
+                            </label>
+                        </div>
+
+                        <label>
+                            Describe tu proyecto
+                            <textarea
+                                name="description"
+                                id="qDescription"
+                                required
+                                minlength="10"
+                                maxlength="1500"
+                                rows="4"
+                                placeholder="Medidas, acabados y detalles importantes"
+                            ></textarea>
+                        </label>
+
+                        <button type="submit">
+                            Guardar solicitud →
+                        </button>
+
+                        <div
+                            id="quoteMsg"
+                            class="msg"
+                            role="status"
+                            aria-live="polite"
+                        ></div>
+                    </form>
+
+                    <section
+                        id="quoteActions"
+                        hidden
+                        aria-label="Opciones para compartir la cotización"
+                    >
+                        <h3>Comparte tu solicitud</h3>
+
+                        <p id="quoteActionsText">
+                            Tu solicitud se guardó en este dispositivo.
+                        </p>
+
+                        <div class="quote-contact-actions">
+                            <a
+                                id="sendEmail"
+                                class="btn"
+                                href="#"
+                            >
+                                Preparar correo
+                            </a>
+
+                            <a
+                                id="sendWhatsApp"
+                                class="btn"
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Enviar por WhatsApp
+                            </a>
+                        </div>
+
+                        <p>
+                            Revisa el mensaje y pulsa Enviar en la
+                            aplicación correspondiente. Guardar la
+                            solicitud no significa que la empresa
+                            ya la haya recibido.
+                        </p>
+                    </section>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            King Drywall · Soluciones profesionales para tus espacios.
+        </footer>
+    </div>
+
+    <!-- Servicio de correo para enviar cotizaciones automáticamente -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js"></script>
+
+    <!-- Lógica de sesión, solicitudes y formulario -->
+    <script src="../app-page.js"></script>
+</body>
+</html>

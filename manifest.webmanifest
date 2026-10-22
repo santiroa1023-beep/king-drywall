@@ -1,0 +1,11 @@
+{
+    "name": "King Drywall",
+    "short_name": "King Drywall",
+    "description": "Servicios y cotizaciones de King Drywall",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0b5b89",
+    "icons": []
+}

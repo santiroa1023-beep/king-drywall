@@ -1,0 +1,494 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1539D4">
+
+    <title>King Drywall | Mis solicitudes</title>
+
+    <meta
+        name="description"
+        content="Consulta el historial y el estado de tus solicitudes de cotización en King Drywall."
+    >
+
+    <link rel="manifest" href="../manifest.webmanifest">
+    <link rel="stylesheet" href="../styles.css">
+
+    <style>
+        /* CONTENEDOR GENERAL */
+        .requests-page {
+            min-height: calc(100vh - 76px);
+            padding: 48px 24px 65px;
+            background: #F5F7FC;
+        }
+
+        .requests-container {
+            width: min(1050px, 100%);
+            margin: 0 auto;
+        }
+
+        /* ENCABEZADO */
+        .requests-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            margin-bottom: 30px;
+            padding: 38px 34px;
+            border: 0;
+            border-radius: 20px;
+            background: #1539D4;
+            background-image: none;
+            color: #FFFFFF;
+            box-shadow: 0 12px 30px rgba(21, 57, 212, 0.10);
+        }
+
+        .requests-banner .eyebrow {
+            display: block;
+            margin-bottom: 12px;
+            color: #F2C230;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .requests-banner h1 {
+            margin: 0 0 12px;
+            color: #FFFFFF;
+            font-size: clamp(30px, 4vw, 42px);
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+
+        .requests-banner p {
+            max-width: 550px;
+            margin: 0;
+            color: #FFFFFF;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .requests-banner .btn {
+            flex-shrink: 0;
+            padding: 14px 20px;
+            border: 1px solid #FFFFFF;
+            border-radius: 9px;
+            background: #FFFFFF;
+            color: #1539D4;
+            font-weight: 900;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .requests-banner .btn:hover {
+            border-color: #F2C230;
+            background: #F2C230;
+            color: #1539D4;
+        }
+
+        /* ESTADÍSTICAS */
+        .request-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 38px;
+        }
+
+        .request-stat {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-height: 105px;
+            padding: 20px;
+            border: 1px solid #DFE6F2;
+            border-radius: 15px;
+            background: #FFFFFF;
+            box-shadow: 0 5px 18px rgba(21, 57, 212, 0.04);
+        }
+
+        .request-stat-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            border-radius: 13px;
+            background: #EAF0FF;
+            color: #1539D4;
+            font-size: 23px;
+        }
+
+        .request-stat strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #172D3D;
+            font-size: 25px;
+            line-height: 1.1;
+        }
+
+        .request-stat span:last-child {
+            color: #667D8E;
+            font-size: 12px;
+        }
+
+        /* HISTORIAL */
+        .history-heading {
+            margin-bottom: 22px;
+        }
+
+        .history-heading h2 {
+            margin: 0 0 7px;
+            color: #172D3D;
+            font-size: 25px;
+        }
+
+        .history-heading p {
+            margin: 0;
+            color: #667D8E;
+            font-size: 13px;
+        }
+
+        #requestsList {
+            display: grid;
+            gap: 15px;
+        }
+
+        .request {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 22px;
+            margin: 0;
+            padding: 24px;
+            border: 1px solid #DFE6F2;
+            border-left: 5px solid #1539D4;
+            border-radius: 14px;
+            background: #FFFFFF;
+            box-shadow: 0 5px 18px rgba(21, 57, 212, 0.04);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .request:hover {
+            border-color: #C9D4F7;
+            border-left-color: #F2C230;
+            box-shadow: 0 10px 24px rgba(21, 57, 212, 0.07);
+        }
+
+        .request b {
+            color: #172D3D;
+            font-size: 16px;
+        }
+
+        .request p {
+            margin: 8px 0 0;
+            color: #667D8E;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .request .status {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: max-content;
+            padding: 8px 12px;
+            border: 1px solid #F0D878;
+            border-radius: 30px;
+            background: #FFF6D9;
+            color: #806000;
+            font-size: 11px;
+            font-weight: 900;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* ESTADO VACÍO */
+        .empty {
+            padding: 35px 24px;
+            border: 1px dashed #B9C8F8;
+            border-radius: 14px;
+            background: #FFFFFF;
+            color: #667D8E;
+            text-align: center;
+        }
+
+        .empty h3 {
+            margin: 0 0 8px;
+            color: #172D3D;
+        }
+
+        .empty p {
+            margin: 0 0 18px;
+            font-size: 13px;
+        }
+
+        /* BLOQUE INFORMATIVO */
+        .requests-tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-top: 28px;
+            padding: 20px;
+            border: 1px solid #DFE6F2;
+            border-radius: 13px;
+            background: #EAF0FF;
+        }
+
+        .requests-tip-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background: #FFFFFF;
+            color: #1539D4;
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .requests-tip h3 {
+            margin: 0 0 5px;
+            color: #1539D4;
+            font-size: 14px;
+        }
+
+        .requests-tip p {
+            margin: 0;
+            color: #526B84;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        /* PIE DE PÁGINA */
+        .requests-footer {
+            background: #FFFFFF;
+            border-top: 1px solid #DFE6F2;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 760px) {
+            .requests-banner {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 28px 24px;
+            }
+
+            .request-stats {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .request-stat {
+                min-height: 85px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .requests-page {
+                padding: 28px 15px 45px;
+            }
+
+            .requests-banner {
+                border-radius: 15px;
+                padding: 25px 20px;
+            }
+
+            .requests-banner .btn {
+                width: 100%;
+            }
+
+            .request {
+                flex-direction: column;
+                padding: 19px;
+            }
+
+            .request .status {
+                white-space: normal;
+            }
+
+            .history-heading h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- NAVEGACIÓN -->
+        <header>
+            <a class="brand" href="inicio.html">
+                <i>KD</i>
+                King <b>Drywall</b>
+            </a>
+
+            <button
+                class="hamb"
+                id="hamb"
+                type="button"
+                aria-label="Abrir menú"
+                aria-controls="nav"
+                aria-expanded="false"
+            >☰</button>
+
+            <nav id="nav">
+                <a href="inicio.html" data-page="inicio.html">Inicio</a>
+                <a href="nosotros.html" data-page="nosotros.html">Nosotros</a>
+                <a href="servicios.html" data-page="servicios.html">Servicios</a>
+                <a href="cotizar.html" data-page="cotizar.html">Cotizar</a>
+                <a href="solicitudes.html" data-page="solicitudes.html">Mis solicitudes</a>
+
+                <span class="nav-user" id="userName"></span>
+
+                <button id="logout" class="logout" type="button">
+                    Cerrar sesión
+                </button>
+            </nav>
+        </header>
+
+        <main class="requests-page">
+            <div class="requests-container">
+
+                <!-- ENCABEZADO -->
+                <section class="requests-banner">
+                    <div>
+                        <span class="eyebrow">ÁREA DE CLIENTE</span>
+
+                        <h1>Mis solicitudes</h1>
+
+                        <p>
+                            Consulta las cotizaciones que has registrado,
+                            revisa sus detalles y mantén organizada la
+                            información de tus proyectos.
+                        </p>
+                    </div>
+
+                    <a class="btn" href="cotizar.html">
+                        + Nueva cotización
+                    </a>
+                </section>
+
+                <!-- ESTADÍSTICAS -->
+                <section
+                    class="request-stats"
+                    aria-label="Resumen de solicitudes"
+                >
+                    <article class="request-stat">
+                        <div class="request-stat-icon" aria-hidden="true">▤</div>
+
+                        <div>
+                            <strong id="totalRequests">0</strong>
+                            <span>Solicitudes registradas</span>
+                        </div>
+                    </article>
+
+                    <article class="request-stat">
+                        <div class="request-stat-icon" aria-hidden="true">◷</div>
+
+                        <div>
+                            <strong id="pendingRequests">0</strong>
+                            <span>Pendientes de revisión</span>
+                        </div>
+                    </article>
+
+                    <article class="request-stat">
+                        <div class="request-stat-icon" aria-hidden="true">✓</div>
+
+                        <div>
+                            <strong id="otherRequests">0</strong>
+                            <span>Con otro estado</span>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- HISTORIAL -->
+                <section class="history-section">
+                    <div class="history-heading">
+                        <h2>Historial de cotizaciones</h2>
+                        <p>
+                            Los detalles de tus proyectos aparecen a continuación.
+                        </p>
+                    </div>
+
+                    <div id="requestsList" aria-live="polite">
+                        <!-- app-page.js carga las solicitudes aquí -->
+                    </div>
+                </section>
+
+                <!-- AYUDA -->
+                <aside class="requests-tip">
+                    <div class="requests-tip-icon" aria-hidden="true">i</div>
+
+                    <div>
+                        <h3>¿Necesitas cotizar otro proyecto?</h3>
+                        <p>
+                            Registra una nueva solicitud con el servicio,
+                            la ubicación y los detalles de tu obra.
+                        </p>
+                    </div>
+                </aside>
+
+            </div>
+        </main>
+
+        <!-- PIE DE PÁGINA -->
+        <footer class="requests-footer">
+            <div class="social-footer-content">
+                <p class="social-footer-copy">
+                    King Drywall · Soluciones profesionales para tus espacios.
+                </p>
+
+                <div class="social-footer-right">
+                    <p class="social-footer-title">
+                        Síguenos y contacta con nosotros
+                    </p>
+
+                    <div class="social-links">
+                        <a
+                            class="social-button social-facebook"
+                            href="https://www.facebook.com/profile.php?id=61584960767380"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook de King Drywall"
+                        >
+                            <span class="social-icon" aria-hidden="true">f</span>
+                            Facebook
+                        </a>
+
+                        <a
+                            class="social-button social-instagram"
+                            href="https://www.instagram.com/king_drywall_/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram de King Drywall"
+                        >
+                            <span class="social-icon" aria-hidden="true"></span>
+                            Instagram
+                        </a>
+
+                        <a
+                            class="social-button social-whatsapp"
+                            href="https://wa.me/525518166701"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Contactar por WhatsApp"
+                        >
+                            <span class="social-icon" aria-hidden="true">↗</span>
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="../app-page.js"></script>
+</body>
+</html>
