@@ -1,11 +1,17 @@
 {
-    "name": "King Drywall",
-    "short_name": "King Drywall",
-    "description": "Servicios y cotizaciones de King Drywall",
-    "start_url": "./index.html",
-    "scope": "./",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#0b5b89",
-    "icons": []
+  "name": "King Drywall",
+  "short_name": "King Drywall",
+  "description": "Servicios y cotizaciones de King Drywall",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F5F7FC",
+  "theme_color": "#1539D4",
+  "icons": [
+    {
+      "src": "./assets/logo.jpeg",
+      "sizes": "any",
+      "type": "image/jpeg"
+    }
+  ]
 }
