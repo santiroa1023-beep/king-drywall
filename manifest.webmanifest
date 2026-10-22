@@ -1,3 +1,4 @@
+
 {
   "name": "King Drywall",
   "short_name": "King Drywall",
@@ -9,9 +10,9 @@
   "theme_color": "#1539D4",
   "icons": [
     {
-      "src": "./assets/logo.jpeg",
-      "sizes": "any",
-      "type": "image/jpeg"
+      "src": "./assets/logo.png",
+      "sizes": "500x500",
+      "type": "image/png"
     }
   ]
 }
